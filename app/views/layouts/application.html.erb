@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Joahg</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div class="container">
+		<div class="three columns sidebar">
+			<nav>
+				<h3 id="logo"> Joah Gerstenberg </h3>
+				<ul>
+					<li>
+						<%= link_to "home", root_path %>
+					</li>
+					<li>
+						<a href="http://forum.joahg.com">forum</a>
+					</li>
+					<li>
+						<a href="http://blog.joahg.com">blog</a>
+					</li>
+					<li>
+						<%= link_to "about", about_path %>
+					</li>
+					<li>
+						<%= link_to "find", find_path %>
+					</li>
+					<li>
+						<a href="mailto:me@joahg.com">email</a>
+					</li>
+				</ul>
+			</nav>
+			&nbsp;
+		</div>
+		<div class="twelve columns offset-by-one content">
+			<%= yield %>
+		</div>
+	</div>
+</body>
+</html>
