@@ -14,7 +14,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery.turbolinks
+//= require jquery.ui.all
 //= require_tree .
+
+var home = null
 
 var gridize = function() {
 	a = $("#find ul li a")
@@ -30,19 +33,20 @@ var gridize = function() {
 		for (j in o) {
 			d = o[j]
 			if (d != o[o.length-1] && d != o[0]) {
-				h += "<div class='four columns logo'><a href='"+d.href+"'><div class='img' style='background-image:url("+d.getAttribute("data-img")+")' /><h6>"+d.text+"</h6></a></div>"
+				h += "<div class='four columns logo'><a href='"+d.href+"' target='_blank'><div class='img' style='background-image:url("+d.getAttribute("data-img")+")' /><h6>"+d.text+"</h6></a></div>"
 			} else if (d === o[o.length-1]) {
-				h += "<div class='four columns omega logo'><a href='"+d.href+"'><div class='img' style='background-image:url("+d.getAttribute("data-img")+")' /><h6>"+d.text+"</h6></a></div>"
+				h += "<div class='four columns omega logo'><a href='"+d.href+"' target='_blank'><div class='img' style='background-image:url("+d.getAttribute("data-img")+")' /><h6>"+d.text+"</h6></a></div>"
 			} else if (d === o[0]) {
-				h += "<div class='four columns alpha logo'><a href='"+d.href+"'><div class='img' style='background-image:url("+d.getAttribute("data-img")+")' /><h6>"+d.text+"</h6></a></div>"
+				h += "<div class='four columns alpha logo'><a href='"+d.href+"' target='_blank'><div class='img' style='background-image:url("+d.getAttribute("data-img")+")' /><h6>"+d.text+"</h6></a></div>"
 			}
 		}
 		h += "</div>"
 		html += h
 	}
-	$("#find").html(html)
+	if (html != "") {
+		$("#find").html(html)
+	}
 }
-
 
 $(document).ready(function(){
 	$(".sidebar nav ul li a:not(.email)").click(function(){
@@ -50,21 +54,26 @@ $(document).ready(function(){
 			$(this).removeClass("active");
 		})
 		$(this).parent().addClass("active")
+		Turbolinks.visit($(this).attr("href"))
 	})
+	$("a[data-nav-trigger]").click(function(){
+		$(".nav_"+$(this).attr("data-nav-trigger")).click()
+		return false
+	});
+	$(".mobile-nav-trigger").click(function(){
+		$("nav ul").toggle("blind", {direction: "vertical"}, 300)
+	});
 });
 
 var oldHTML = null;
 var newHTML = null;
-var sidebarHTML = null;
 
 $(document).on('page:fetch', function() {
 	oldHTML = $(".content").html()
-	sidebarHTML = $(".sidebar").html()
 });
 
 $(document).on('page:change', function() {
 	newHTML = $(".content").html()
-	$(".sidebar").html(sidebarHTML)
 	if (newHTML != oldHTML) {
 		$(".content").html(oldHTML)
 		$(".content").fadeOut(250, function(){
@@ -73,3 +82,12 @@ $(document).on('page:change', function() {
 		})
 	}
 });
+
+$(window).resize(function(){
+	if ($(window).width() > 767) {
+		$("nav ul").show()
+	}
+	if ($(window).width() <= 767) {
+		$("nav ul").hide()
+	}
+})

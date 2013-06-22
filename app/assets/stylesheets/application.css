@@ -13,6 +13,10 @@
  *= require_self
  */
 
+nav ul {
+	display: block;
+}
+
 li.active a {
 	color: #000 !important;
 }
@@ -39,6 +43,11 @@ li.active a {
 	margin-left: 10px;
 }
 
+.logo h6 {
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
 .logo:hover {
 	background-color: #eee;
 }
@@ -48,4 +57,77 @@ li.active a {
     -webkit-transition: background-color 0.3s;
     -o-transition: background-color 0.3s;
     transition: background-color 0.3s;
+}
+
+.mobile-nav-trigger {
+	display: none;
+}
+
+.icon-bar {
+	display: block;
+	width: 18px;
+	height: 2px;
+	background-color: #000;
+	border-radius: 1px;
+	margin-top: 2	px;
+	margin-bottom: 2px;
+}
+
+@media only screen and (min-width:767px) {
+	nav ul {
+		display:block;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.mobile-nav-trigger {
+		display: inline-block;
+		cursor: pointer;
+		margin-bottom: 2px;
+		vertical-align: top
+	}
+	#logo {
+		display: inline-block !important;
+		width: 370px;
+	}
+	nav {
+		width: 100%;
+	}
+	nav ul {
+		display:none;
+		background-color: black;
+		width: 100%;
+		padding-top:10px;
+		padding-bottom: 10px;
+	}
+	nav ul li {
+		display:block;
+		margin-left: 10px;
+		margin-top: 10px;
+		width: 100%;
+	}
+	nav ul li a {
+		color: #999 !important;
+		width: 100%;
+		display: inline-block;
+	}
+	nav ul li a:hover {
+		color: white !important;
+	}
+	nav ul li.active a {
+		color: white !important;
+	}
+}
+
+@media only screen and (max-width:480px) {
+	#logo {
+		width: 250px;
+	}
+}
+
+@media only screen and (max-width:960px) and (min-width: 768px) {
+	.logo .img {
+		width: 150px;
+		height: 100px;
+	}
 }

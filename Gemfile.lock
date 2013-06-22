@@ -48,6 +48,9 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-turbolinks (0.2.1)
       rails (>= 3.1.0)
+    jquery-ui-rails (4.0.1)
+      jquery-rails
+      railties (>= 3.1.0)
     json (1.7.7)
     mail (2.4.4)
       i18n (>= 0.4.0)
@@ -112,6 +115,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   jquery-rails
   jquery-turbolinks
+  jquery-ui-rails
   json (~> 1.7.7)
   rails (= 3.2.11)
   sass-rails (~> 3.2.3)

@@ -11,9 +11,14 @@
 		<div class="three columns sidebar">
 			<nav>
 				<h3 id="logo"> Joah Gerstenberg </h3>
+				<button class="mobile-nav-trigger"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
 				<ul>
-					<li>
-						<%= link_to "home", root_path %>
+					<% if current_page?(root_path) %>
+						<li class="active">
+					<%else%>
+						<li>
+					<%end%>
+						<%= link_to "home", root_path, :class => "nav_home" %>
 					</li>
 					<li>
 						<a href="http://forum.joahg.com">forum</a>
@@ -21,11 +26,19 @@
 					<li>
 						<a href="http://blog.joahg.com">blog</a>
 					</li>
-					<li>
-						<%= link_to "about", about_path %>
+					<% if current_page?(about_path) %>
+						<li class="active">
+					<%else%>
+						<li>
+					<%end%>
+						<%= link_to "about", about_path, :class => "nav_about" %>
 					</li>
-					<li>
-						<%= link_to "find", find_path %>
+					<% if current_page?(find_path) %>
+						<li class="active">
+					<%else%>
+						<li>
+					<%end%>
+						<%= link_to "find", find_path, :class => "nav_find" %>
 					</li>
 					<li>
 						<a href="mailto:me@joahg.com" class="email">email</a>
