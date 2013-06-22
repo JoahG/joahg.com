@@ -24,14 +24,13 @@ gem 'jquery-rails'
 
 gem 'skeleton-rails'
 
-gem 'turbolinks'
-
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'json', '~> 1.7.7'
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
-
+gem 'turbolinks'
+gem 'jquery-turbolinks'
 # Use unicorn as the app server
 # gem 'unicorn'
 
