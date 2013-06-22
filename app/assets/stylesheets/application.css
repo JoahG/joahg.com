@@ -69,7 +69,7 @@ li.active a {
 	height: 2px;
 	background-color: #000;
 	border-radius: 1px;
-	margin-top: 2	px;
+	margin-top: 2px;
 	margin-bottom: 2px;
 }
 
@@ -80,6 +80,9 @@ li.active a {
 }
 
 @media all and (max-width: 767px) {
+	.container {
+		padding-bottom: 60px;
+	}
 	.mobile-nav-trigger {
 		display: inline-block;
 		cursor: pointer;
