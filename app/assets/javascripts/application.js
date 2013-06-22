@@ -18,7 +18,7 @@
 
 
 $(document).ready(function(){
-	$(".sidebar nav ul li a").click(function(){
+	$(".sidebar nav ul li a:not(.email)").click(function(){
 		$(this).parent().siblings().each(function(){
 			$(this).removeClass("active");
 		})
