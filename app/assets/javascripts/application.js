@@ -16,6 +16,33 @@
 //= require jquery.turbolinks
 //= require_tree .
 
+var gridize = function() {
+	a = $("#find ul li a")
+	b = []
+	while (a.length > 0) {
+		b.push(a.splice(0,3))
+	}
+	$("#find ul").remove()
+	html = ""
+	for (i in b) {
+		o = b[i]
+		h = "<div class='row clearfix'>"
+		for (j in o) {
+			d = o[j]
+			if (d != o[o.length-1] && d != o[0]) {
+				h += "<div class='four columns logo'><a href='"+d.href+"'><div class='img' style='background-image:url("+d.getAttribute("data-img")+")' /><h6>"+d.text+"</h6></a></div>"
+			} else if (d === o[o.length-1]) {
+				h += "<div class='four columns omega logo'><a href='"+d.href+"'><div class='img' style='background-image:url("+d.getAttribute("data-img")+")' /><h6>"+d.text+"</h6></a></div>"
+			} else if (d === o[0]) {
+				h += "<div class='four columns alpha logo'><a href='"+d.href+"'><div class='img' style='background-image:url("+d.getAttribute("data-img")+")' /><h6>"+d.text+"</h6></a></div>"
+			}
+		}
+		h += "</div>"
+		html += h
+	}
+	$("#find").html(html)
+}
+
 
 $(document).ready(function(){
 	$(".sidebar nav ul li a:not(.email)").click(function(){
