@@ -82,7 +82,7 @@ li.active a {
 @media all and (max-width: 767px) {
 	.container {
 		padding-bottom: 60px;
-		padding-top: 10px;
+		padding-top: 15px !important;
 	}
 	.mobile-nav-trigger {
 		display: inline-block;
