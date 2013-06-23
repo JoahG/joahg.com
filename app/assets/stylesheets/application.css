@@ -70,6 +70,10 @@ li.active a {
 	margin-bottom: 2px;
 }
 
+.post-preview {
+	margin-bottom: 20px;
+}
+
 @media all and (min-width:767px) {
 	nav ul {
 		display:block;
