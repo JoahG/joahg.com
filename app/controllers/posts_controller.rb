@@ -7,6 +7,11 @@ class PostsController < ApplicationController
 	end
 	def index
 		@posts = Post.all.reverse
+		respond_to do |format|
+			format.html
+			format.xml { render :xml => @posts}
+			format.atom { headers["Content-Type"] = 'application/atom+xml; charset=utf-8'}
+		end
 	end
 	def create
 		@post = Post.new(params[:post])
