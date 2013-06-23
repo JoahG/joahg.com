@@ -48,9 +48,6 @@ li.active a {
 	margin-bottom: 10px;
 }
 
-.logo:hover {
-	background-color: #eee;
-}
 
 .logo {
 	-moz-transition: background-color 0.3s;
@@ -133,5 +130,10 @@ li.active a {
 	.logo .img {
 		width: 150px;
 		height: 100px;
+	}
+}
+@media all and (min-width: 768px) {
+	.logo:hover {
+		background-color: #eee;
 	}
 }
