@@ -7,6 +7,7 @@
 <div>
 	<% if current_user && current_user.admin? %>
 		<%= link_to "New Post", new_post_path %><br>
+		<%= link_to "Edit Posts", admin_posts_path %><br>
 		<%= link_to "Log Out", log_out_path %>
 	<% else %>
 		<%= render "login" %>

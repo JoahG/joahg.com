@@ -70,8 +70,22 @@ li.active a {
 	margin-bottom: 2px;
 }
 
-.post-preview {
+.post-preview:not(:last-child) {
 	margin-bottom: 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px #ddd solid;
+}
+
+.post img {
+	width: 100%;
+}
+
+.post-preview img {
+	display: none;
+}
+
+input, textarea {
+	width: 100% !important;
 }
 
 @media all and (min-width:767px) {

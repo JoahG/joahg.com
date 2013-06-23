@@ -6,11 +6,10 @@
 	<h2>
 		<%= @post.title %>
 	</h2>
-	<p class="post-author">Written by <%= @post.user.name %> on <%= @post.created_at.strftime("%m/%d/%Y") %></p>
+	<p class="post-info">Written by <%= @post.user.name %> on <%= @post.created_at.strftime("%m/%d/%Y") %>	<% if @post.tag %>
+		<br>Filed under <%= link_to @post.tag, tag_path(@post.tag) %>
+	<% end %></p>
 	<div class="post-content">
 		<%= raw @post.rendered %>
 	</div>
-	<% @post.tags.each do |tag| %>
-		<%= tag %>
-	<% end %>
 </div>

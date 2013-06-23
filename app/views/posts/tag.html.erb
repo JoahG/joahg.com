@@ -1,0 +1,11 @@
+<header>
+	<h1> Posts tagged "<%= params[:tag] %>" </h1>
+</header>
+
+<div>
+	<% if @posts %>
+		<%= render "previews", :posts => @posts %>
+	<% else %>
+		Sorry! I haven't written a post yet about "<%= params[:tag] %>", why don't you <a href="mailto:me@joahg.com">email me</a> an idea that I can write about!
+	<% end %>
+</div>

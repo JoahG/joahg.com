@@ -78,7 +78,7 @@ var mobileNavShown = false;
 
 $(document).on('page:fetch', function() {
 	oldHTML = $(".content").html()
-	if ($("nav ul").css("display") === "block") {
+	if ($("nav ul").css("display") === "block" && $("nav ul").css("display") != "none") {
 		mobileNavShown = true;
 	}
 });
@@ -88,6 +88,7 @@ $(document).on('page:change', function() {
 	if (mobile && mobileNavShown) {
 		$("nav ul").show()
 		$("nav ul").hide("blind", {direction: "vertical"}, 300)
+		mobileNavShown = false
 	}
 	if (newHTML != oldHTML) {
 		$(".content").html(oldHTML)

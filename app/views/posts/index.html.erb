@@ -5,18 +5,5 @@
 </header>
 
 <div>
-	<% @posts.each do |post| %>
-		<div class="post-preview">
-			<h3>
-				<%= link_to post.title, post %>
-			</h3>
-			<p class="post-author">Written by <%= post.user.name %> on <%= post.created_at.strftime("%m/%d/%Y") %></p>
-			<div class="post-content">
-				<%= raw post.rendered %> <%= link_to "Read More", post %>
-			</div>
-			<% post.tags.each do |tag| %>
-				<%= tag %>
-			<% end %>
-		</div>
-	<% end %>
+	<%= render "previews", :posts => @posts %>
 </div>
