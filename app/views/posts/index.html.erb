@@ -12,7 +12,7 @@
 			</h3>
 			<p class="post-author">Written by <%= post.user.name %> on <%= post.created_at.strftime("%m/%d/%Y") %></p>
 			<div class="post-content">
-				<%= raw post.preview %> <%= link_to "Read More", post %>
+				<%= raw post.rendered %> <%= link_to "Read More", post %>
 			</div>
 			<% post.tags.each do |tag| %>
 				<%= tag %>

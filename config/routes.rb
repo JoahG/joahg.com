@@ -5,7 +5,9 @@ Joahg::Application.routes.draw do
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "admin/posts" => "admin#posts", :as => "admin_posts"
   get "admin/posts/new" => "posts#new", :as => "new_post"
-  get "/posts/:id" => "posts#show", :as => "show_post"
+  get "/posts/:id" => "posts#show", :as => "post"
+  get "/posts" => "posts#index", :as => "posts"
+  post "/posts" => "posts#create"
   match '', to: "posts#index", constraints: {subdomain: /\bblog\b.*/}
   root :to => 'p#index'
   resources :sessions

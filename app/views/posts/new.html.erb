@@ -8,7 +8,8 @@
 	    <%= f.text_field :title, :placeholder => "Title" %>
 	  </div>
 	  <div class="field">
-	    <%= f.text_area :content, :placeholder => "Username" %>
+	    <div id="wmd-button-bar"></div>
+	    <%= f.text_area :content, :id => 'wmd-input', :placeholder => "Post Content Here" %>
 	  </div>
 	  <div class="field">
 	  	<%= f.text_field :tags, :name => "tags[]", :placeholder => "Tags" %>
@@ -16,6 +17,14 @@
 	  <%= f.hidden_field :user_id, :value => current_user.id %>
 	  <div class="actions"><%= f.submit %></div>
 	<% end %>
+
+	<script>
+		  setup_wmd({
+		      input: "wmd-input",
+		      button_bar: "wmd-button-bar",
+		      preview: "wmd-preview"
+		  });
+		</script>
 <% else %>
 	<script>
 		window.location.href = "/admin"

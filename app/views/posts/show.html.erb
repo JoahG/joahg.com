@@ -8,7 +8,7 @@
 	</h2>
 	<p class="post-author">Written by <%= @post.user.name %> on <%= @post.created_at.strftime("%m/%d/%Y") %></p>
 	<div class="post-content">
-		<%= raw @post.content %>
+		<%= raw @post.rendered %>
 	</div>
 	<% @post.tags.each do |tag| %>
 		<%= tag %>
