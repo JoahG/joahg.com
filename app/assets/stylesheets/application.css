@@ -84,6 +84,23 @@ li.active a {
 	display: none;
 }
 
+.post ul {
+	list-style-type: disc !important;
+}
+
+.post-info {
+	margin-bottom: 10px;
+}
+
+pre {
+	margin-bottom: 20px;
+	font-family: "monaco";
+}
+
+code {
+	font-family: "monaco";
+}
+
 input, textarea {
 	width: 100% !important;
 }

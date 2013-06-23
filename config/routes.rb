@@ -15,4 +15,5 @@ Joahg::Application.routes.draw do
   match '', to: "posts#index", constraints: {subdomain: /\bblog\b.*/}
   root :to => 'p#index'
   resources :sessions
+  match '*path', to: "p#fourofour"
 end

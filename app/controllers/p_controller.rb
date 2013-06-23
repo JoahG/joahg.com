@@ -7,4 +7,7 @@ class PController < ApplicationController
 
 	def about
 	end
+
+	def fourofour
+	end
 end

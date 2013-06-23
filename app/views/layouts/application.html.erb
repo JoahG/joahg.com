@@ -22,9 +22,6 @@
 					<%end%>
 						<%= link_to "home", root_url(subdomain: false), :class => "nav_home" %>
 					</li>
-					<li>
-						<a href="http://forum.joahg.com">forum</a>
-					</li>
 					<% if current_page?(root_url(subdomain: "blog")) %>
 						<li class="active">
 					<% else %>
@@ -45,6 +42,9 @@
 						<li>
 					<%end%>
 						<%= link_to "find", root_url(subdomain: false)+"find", :class => "nav_find" %>
+					</li>
+					<li>
+						<a href="http://forum.joahg.com">forum</a>
 					</li>
 					<li>
 						<a href="mailto:me@joahg.com" class="email">email</a>
