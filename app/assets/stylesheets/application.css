@@ -105,6 +105,10 @@ input, textarea {
 	width: 100% !important;
 }
 
+.post-previews {
+	padding-bottom: 60px;
+}
+
 @media all and (min-width:767px) {
 	nav ul {
 		display:block;

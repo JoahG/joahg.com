@@ -2,7 +2,7 @@
 	<h1> Posts tagged "<%= params[:tag] %>" </h1>
 </header>
 
-<div>
+<div class="posts-previews">
 	<% if @posts.length > 0 %>
 		<%= render "previews", :posts => @posts %>
 	<% else %>
