@@ -94,11 +94,11 @@ li.active a {
 
 pre {
 	margin-bottom: 20px;
-	font-family: "monaco";
+	font-family: "monaco", monospace;
 }
 
 code {
-	font-family: "monaco";
+	font-family: "monaco", monospace;
 }
 
 input, textarea {
