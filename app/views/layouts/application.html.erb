@@ -31,6 +31,13 @@
 					<% end %>
 						<%= link_to "blog", root_url(subdomain: "blog") %>
 					</li>
+					<% if current_page?(root_url(subdomain: "go")) %>
+						<li class="active">
+					<% else %>
+						<li>
+					<% end %>
+						<%= link_to "urls", root_url(subdomain: "go") %>
+					</li>
 					<% if current_page?(about_path) %>
 						<li class="active">
 					<%else%>
