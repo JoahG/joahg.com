@@ -13,6 +13,11 @@ Joahg::Application.routes.draw do
   put "/posts/:id" => "posts#update", :as => "update_post", constraints: {subdomain: /\bblog\b.*/}
   post "/posts" => "posts#create", constraints: {subdomain: /\bblog\b.*/}
   match '', to: "posts#index", constraints: {subdomain: /\bblog\b.*/}
+  get 'new' => "urls#new", :as => "new_url", constraints: {subdomain: /\bgo\b.*/}
+  get ':short' => "urls#show", :as => "show_url", constraints: {subdomain: /\bgo\b.*/}
+  get ':short/+' => "urls#info", :as => "info_url", constraints: {subdomain: /\bgo\b.*/}
+  post 'urls' => "urls#create", constraints: {subdomain: /\bgo\b.*/}
+  get '/' => "urls#index", constraints: {subdomain: /\bgo\b.*/}
   root :to => 'p#index'
   resources :sessions
   match '*path', to: "p#fourofour"
