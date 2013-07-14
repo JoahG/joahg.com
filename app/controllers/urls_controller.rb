@@ -7,7 +7,10 @@ class UrlsController < ApplicationController
 	def show
 		@url = Url.find_by_short(params[:short])
 		@url.update_attributes(:clicks => @url.clicks+1)
-		redirect_to @url.long
+		respond_to do |format|
+			format.html { redirect_to @url.long }
+			format.json { render :json => @url.to_json }
+		end
 	end
 
 	def new
@@ -20,6 +23,19 @@ class UrlsController < ApplicationController
 			@url.save
 		end
 		redirect_to root_url
+	end
+
+	def api_create      
+	    @url = Url.new
+	    @url.long = params[:long]
+	    if !Url.find_by_long(@url.long)
+		    if !@url.save
+		        @url = "error"
+		    end
+		else
+			@url = Url.find_by_long(@url.long)
+		end
+	    render json: @url
 	end
 
 	def info

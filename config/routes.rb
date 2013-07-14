@@ -3,6 +3,7 @@ Joahg::Application.routes.draw do
   get ':short' => "urls#show", :as => "show_url", constraints: {subdomain: /\bgo\b.*/}
   get ':short/+' => "urls#info", :as => "info_url", constraints: {subdomain: /\bgo\b.*/}
   post 'urls' => "urls#create", constraints: {subdomain: /\bgo\b.*/}
+  post 'api/new' => "urls#api_create", constraints: {subdomain: /\bgo\b.*/}
   get '/' => "urls#index", constraints: {subdomain: /\bgo\b.*/}
 
   get "admin" => "admin#index", :as => "admin", constraints: {subdomain: /\bblog\b.*/}
