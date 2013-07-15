@@ -7,6 +7,12 @@
 	<li><%=render 'form'%></li>
 </ul>
 
+<hr>
+
+<div class="center">
+	Add <a id="script_button">this link</a> to your bookmarks for URL shortening on the fly!
+</div>
+
 
 <script>
 	var clip = new ZeroClipboard($(".copy-button"), {
@@ -16,4 +22,8 @@
 	clip.on( 'complete', function(client, args) {
 	  alert("Copied url to clipboard: " + args.text );
 	} );
+
+	var script= "javascript:(function(){var%20script=document.createElement('SCRIPT');script.src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js';script.type='text/javascript';document.getElementsByTagName('head')[0].appendChild(script);var%20checkReady=function(callback){if(window.jQuery){callback(jQuery);}else{window.setTimeout(function(){checkReady(callback);},100);}};checkReady(function($){$.ajax({url:'http:\/\/go.joahg.com/api/new',type:'POST',data:{'long':document.URL},dataType:'json'}).done(function(e){prompt('Press%20CMD%20+%20C%20or%20CTRL%20+%20C%20to%20copy.',%20'http://go.joahg.com/'+e.short)})});})();"
+
+	$("#script_button").attr("href",script);
 </script>

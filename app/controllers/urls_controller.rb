@@ -19,10 +19,17 @@ class UrlsController < ApplicationController
 
 	def create
 		@url = Url.new(params[:url])
+
+		if @url.long[-1,1] == "/"
+			@url.long = @url.long[0..@url.long.length-2]
+		end
+
 		if !Url.find_by_long(@url.long)
 			@url.save
+		else
+			@url = Url.find_by_long(@url.long)
 		end
-		redirect_to root_url
+		redirect_to info_url_path(@url.short)
 	end
 
 	def api_create      
