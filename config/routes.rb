@@ -1,9 +1,12 @@
 Joahg::Application.routes.draw do
   get 'new' => "urls#new", :as => "new_url", constraints: {subdomain: /\bgo\b.*/}
-  get ':short' => "urls#show", :as => "show_url", constraints: {subdomain: /\bgo\b.*/}
+  get 'login' => "urls#login", constraints: {subdomain: /\bgo\b.*/}
+  get "logout" => "sessions#destroy", :as => "logout", constraints: {subdomain: /\bgo\b.*/}
+  get ':short' => "urls#show", :as => "url", constraints: {subdomain: /\bgo\b.*/}
   get ':short/+' => "urls#info", :as => "info_url", constraints: {subdomain: /\bgo\b.*/}
   post 'urls' => "urls#create", constraints: {subdomain: /\bgo\b.*/}
   post 'api/new' => "urls#api_create", constraints: {subdomain: /\bgo\b.*/}
+  delete ":id" => "urls#destroy", :as => "destroy_url", constraints: {subdomain: /\bgo\b.*/}
   get '/' => "urls#index", constraints: {subdomain: /\bgo\b.*/}
 
   get "admin" => "admin#index", :as => "admin", constraints: {subdomain: /\bblog\b.*/}

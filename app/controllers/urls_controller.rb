@@ -42,9 +42,12 @@ class UrlsController < ApplicationController
 		@url = Url.find_by_short(params[:short])
 	end
 
+	def admin
+	end
+
 	def destroy
-		@url = Post.find(params[:id])
-		if current_user.admin
+		@url = Url.find(params[:id])
+		if current_user && current_user.admin?
 			@url.destroy
 		end
 		redirect_to root_url
