@@ -2,7 +2,7 @@
 
 <ul>
 	<% @urls.each do |url| %>
-		<li><%= link_to url.short, url %> ~ <%= pluralize(url.clicks, "click") %> - <a class="copy-button" data-clipboard-text="<%=root_url+url.short%>">Copy to clipboard</a> | <%= link_to "info >>", info_url_path(url.short) %></li>
+		<li><%= link_to url.short, url.short %> ~ <%= pluralize(url.clicks, "click") %> - <a class="copy-button" data-clipboard-text="<%=root_url+url.short%>">Copy to clipboard</a> | <%= link_to "info >>", info_url_path(url.short) %></li>
 	<% end %>
 	<li><%=render 'form'%></li>
 </ul>
