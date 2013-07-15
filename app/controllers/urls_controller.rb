@@ -24,7 +24,7 @@ class UrlsController < ApplicationController
 			@url.long = @url.long[0..@url.long.length-2]
 		end
 
-		if !Url.find_by_long(@url.long)
+		if !Url.find_by_long(@url.long) and !Url.find_by_long(@url.long+"/")
 			@url.save
 		else
 			@url = Url.find_by_long(@url.long)
@@ -35,7 +35,12 @@ class UrlsController < ApplicationController
 	def api_create      
 	    @url = Url.new
 	    @url.long = params[:long]
-	    if !Url.find_by_long(@url.long)
+
+		if @url.long[-1,1] == "/"
+			@url.long = @url.long[0..@url.long.length-2]
+		end
+
+	    if !Url.find_by_long(@url.long) and !Url.find_by_long(@url.long+"/")
 		    if !@url.save
 		        @url = "error"
 		    end
