@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 	protect_from_forgery
 
-	#rescue_from Exception, :with => :error_method
+	rescue_from Exception, :with => :error_method
 
   after_filter :set_access_control_headers
 

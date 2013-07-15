@@ -42,7 +42,7 @@ class UrlsController < ApplicationController
 		@url = Url.find_by_short(params[:short])
 	end
 
-	def admin
+	def login
 	end
 
 	def destroy
