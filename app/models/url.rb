@@ -1,9 +1,13 @@
+require 'uri'
+
 class Url < ActiveRecord::Base
   attr_accessible :long, :short, :clicks
 
   before_create :gen_short
 
   validates_uniqueness_of :short
+
+  validates_format_of :long, :with => URI::regexp(%w(http https))
 
   def gen_short
   	c = (0...6).map{ ('a'..'z').to_a[rand(26)] }.join
