@@ -6,9 +6,6 @@ class SmsController < ApplicationController
     bo_sp = body.split
     msg = ""
 
-    puts
-    puts bo_sp.length
-
  	if bo_sp.length == 2
  		if num == "+14097281957"
 	 		if bo_sp[0] == "DELETE" and bo_sp[1].length == 6
@@ -28,18 +25,12 @@ class SmsController < ApplicationController
 	end
 
 	if bo_sp.length == 1
-		puts "**** Found IF"
-
-		@url.new
+		@url = Url.new
 		@url.long = bo_sp[0]
-
-		puts "**** Checkpt 1"
 
 		if @url.long[-1,1] == "/"
 			@url.long = @url.long[0..@url.long.length-2]
 		end
-
-		puts "**** Checkpt 2"
 
 		if !Url.find_by_long(@url.long) and !Url.find_by_long(@url.long+"/")
 		    if !@url.save
@@ -48,7 +39,6 @@ class SmsController < ApplicationController
 		else
 			@url = Url.find_by_long(@url.long)
 		end
-		puts "**** Checkpt 3"
 
 		msg = "http://joahg.com/"+@url.long
 	end
