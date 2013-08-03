@@ -36,7 +36,7 @@ class UrlsController < ApplicationController
 	    @twilio_client.account.sms.messages.create(
 	      :from => "+14093324635",
 	      :to => "+14097281957",
-	      :body => "Short url created for #{@url.long}: http://go.joahg.com/#{url.short}"
+	      :body => "Short url created for #{@url.long}: http://go.joahg.com/#{@url.short}"
 	    )
 
 
@@ -58,6 +58,15 @@ class UrlsController < ApplicationController
 		else
 			@url = Url.find_by_long(@url.long)
 		end
+
+		@twilio_client = Twilio::REST::Client.new "AC110a5ea61b079ecdb05d3fff9c2dd70e", "2a14a64accd4f9b64e8a1500a5b3ab04"
+	 
+	    @twilio_client.account.sms.messages.create(
+	      :from => "+14093324635",
+	      :to => "+14097281957",
+	      :body => "Short url created for #{@url.long}: http://go.joahg.com/#{@url.short}"
+	    )
+
 	    render json: @url
 	end
 
