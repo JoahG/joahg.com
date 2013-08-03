@@ -1,4 +1,4 @@
-class SmsController < ActionController
+class SmsController < ApplicationController
   def index
 	@twilio_client = Twilio::REST::Client.new "AC110a5ea61b079ecdb05d3fff9c2dd70e", "2a14a64accd4f9b64e8a1500a5b3ab04"
     body = params["Body"]
