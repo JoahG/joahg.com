@@ -6,7 +6,8 @@ class SmsController < ApplicationController
     bo_sp = body.split
     msg = ""
 
-    puts bo_sp
+    puts
+    puts bo_sp.length
 
  	if bo_sp.length == 2
  		if num == "+14097281957"
