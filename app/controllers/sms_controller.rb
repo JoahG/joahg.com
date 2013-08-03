@@ -44,7 +44,7 @@ class SmsController < ApplicationController
 			@twilio_client.account.sms.messages.create(
 		      :from => "+14093324635",
 		      :to => "+14097281957",
-		      :body => "Short url created via SMS for #{@url.long}: http://go.joahg.com/#{@url.short}"
+		      :body => "Short url created via SMS for #{@url.long}: http://go.joahg.com/#{@url.short} (#{num})"
 		    )
 		end
 
