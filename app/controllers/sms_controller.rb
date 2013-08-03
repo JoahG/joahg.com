@@ -9,11 +9,11 @@ class SmsController < ApplicationController
  			@url = Url.find_by_short(bo_sp[1])
  			if @url?
 	 			@url.destroy
-	 			@twilio_client.account.sms.messages.create(
-				  :from => "+14093324635",
-				  :to => num,
-				  :body => "Deleted Short URL."
-				)
+	 		# 	@twilio_client.account.sms.messages.create(
+				#   :from => "+14093324635",
+				#   :to => num,
+				#   :body => "Deleted Short URL."
+				# )
 			else
 				@url.destroy
 	 			@twilio_client.account.sms.messages.create(
