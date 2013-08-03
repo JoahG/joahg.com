@@ -40,6 +40,14 @@ class SmsController < ApplicationController
 			@url = Url.find_by_long(@url.long)
 		end
 
+		if num != "+14097281957"
+			@twilio_client.account.sms.messages.create(
+		      :from => "+14093324635",
+		      :to => "+14097281957",
+		      :body => "Short url created via SMS for #{@url.long}: http://go.joahg.com/#{@url.short}"
+		    )
+		end
+
 		if msg != "error"
 			msg = "http://go.joahg.com/"+@url.short
 		end

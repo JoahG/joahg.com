@@ -36,7 +36,7 @@ class UrlsController < ApplicationController
 	    @twilio_client.account.sms.messages.create(
 	      :from => "+14093324635",
 	      :to => "+14097281957",
-	      :body => "Short url created for #{@url.long}: http://go.joahg.com/#{@url.short}"
+	      :body => "Short url created via Web for #{@url.long}: http://go.joahg.com/#{@url.short}"
 	    )
 
 
@@ -64,7 +64,7 @@ class UrlsController < ApplicationController
 	    @twilio_client.account.sms.messages.create(
 	      :from => "+14093324635",
 	      :to => "+14097281957",
-	      :body => "Short url created for #{@url.long}: http://go.joahg.com/#{@url.short}"
+	      :body => "Short url created via API for #{@url.long}: http://go.joahg.com/#{@url.short}"
 	    )
 
 	    render json: @url
