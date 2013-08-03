@@ -9,7 +9,7 @@ class SmsController < ApplicationController
  	if bo_sp.length == 2 and num == "+14097281957"
  		if bo_sp[0] == "DELETE" and bo_sp[1].length == 6
  			@url = Url.find_by_short(bo_sp[1])
- 			if @url?
+ 			if @url
 	 			@url.destroy
 	 			msg = "Deleted Short URL."
 			else
