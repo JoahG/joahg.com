@@ -6,6 +6,8 @@ class SmsController < ApplicationController
     bo_sp = body.split
     msg = ""
 
+    puts bo_sp
+
  	if bo_sp.length == 2
  		if num == "+14097281957"
 	 		if bo_sp[0] == "DELETE" and bo_sp[1].length == 6
@@ -22,7 +24,9 @@ class SmsController < ApplicationController
 		else
 			msg = "Invalid Permissions"
 		end
-	elsif bo_sp.length == 1
+	end
+
+	if bo_sp.length == 1
 		@url.new
 		@url.long = bo_sp[0]
 
