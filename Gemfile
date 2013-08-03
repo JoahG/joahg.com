@@ -27,3 +27,5 @@ gem 'jquery-turbolinks'
 gem 'friendly_id'
 
 gem 'redcarpet'
+
+gem 'twilio-ruby'
