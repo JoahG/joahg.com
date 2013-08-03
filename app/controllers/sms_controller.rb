@@ -34,13 +34,15 @@ class SmsController < ApplicationController
 
 		if !Url.find_by_long(@url.long) and !Url.find_by_long(@url.long+"/")
 		    if !@url.save
-		        @url.long = "error"
+		        msg = "error"
 		    end
 		else
 			@url = Url.find_by_long(@url.long)
 		end
 
-		msg = "http://joahg.com/"+@url.long
+		if msg != "error"
+			msg = "http://joahg.com/"+@url.short
+		end
 	end
 
 	if msg == ""
