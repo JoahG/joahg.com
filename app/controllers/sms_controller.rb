@@ -6,17 +6,21 @@ class SmsController < ApplicationController
     bo_sp = body.split
     msg = ""
 
- 	if bo_sp.length == 2 and num == "+14097281957"
- 		if bo_sp[0] == "DELETE" and bo_sp[1].length == 6
- 			@url = Url.find_by_short(bo_sp[1])
- 			if @url
-	 			@url.destroy
-	 			msg = "Deleted Short URL."
-			else
-				msg = "URL does not exist."
+ 	if bo_sp.length == 2
+ 		if num == "+14097281957"
+	 		if bo_sp[0] == "DELETE" and bo_sp[1].length == 6
+	 			@url = Url.find_by_short(bo_sp[1])
+	 			if @url
+		 			@url.destroy
+		 			msg = "Deleted Short URL."
+				else
+					msg = "URL does not exist."
+				end
+	 		else
+	 			msg = "Invalid Command"
 			end
- 		else
- 			msg = "Invalid Command"
+		else
+			msg = "Invalid Permissions"
 		end
 	elsif bo_sp.length == 1
 		@url.new
@@ -35,8 +39,6 @@ class SmsController < ApplicationController
 		end
 
 		msg = "http://joahg.com/"+@url.long
-	else
-		msg = "Invalid Permissions"
 	end
 
 	if msg == ""
