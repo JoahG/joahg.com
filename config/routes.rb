@@ -1,4 +1,5 @@
 Joahg::Application.routes.draw do
+  post 'sms' => "sms#index", :as => "sms_recieve", constraints: {subdomain: /\bgo\b.*/}
   get 'new' => "urls#new", :as => "new_url", constraints: {subdomain: /\bgo\b.*/}
   get 'login' => "urls#login", constraints: {subdomain: /\bgo\b.*/}
   get "logout" => "sessions#destroy", :as => "logout", constraints: {subdomain: /\bgo\b.*/}
