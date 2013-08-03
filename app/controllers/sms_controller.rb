@@ -41,7 +41,7 @@ class SmsController < ApplicationController
 		end
 
 		if msg != "error"
-			msg = "http://joahg.com/"+@url.short
+			msg = "http://go.joahg.com/"+@url.short
 		end
 	end
 
