@@ -1,5 +1,6 @@
 Joahg::Application.routes.draw do
-  get "g+" => "redirect#gplus", :as => "gplus"
+  get "+" => redirect("https://plus.google.com/103488776856023593576/"), :format => false
+
   post 'sms' => "sms#index",                  :as => "sms_recieve", constraints: {subdomain: /\bgo\b.*/}
   get 'new' => "urls#new",                    :as => "new_url",     constraints: {subdomain: /\bgo\b.*/}
   get 'login' => "urls#login",                                      constraints: {subdomain: /\bgo\b.*/}
@@ -28,5 +29,5 @@ Joahg::Application.routes.draw do
   get "find" => "p#find", :as => "find"
   root :to => 'p#index'
   resources :sessions
-  #match '*path', to: "p#fourofour"
+  match '*path', to: "p#fourofour"
 end
