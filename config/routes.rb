@@ -28,5 +28,5 @@ Joahg::Application.routes.draw do
   get "find" => "p#find", :as => "find"
   root :to => 'p#index'
   resources :sessions
-  match '*path', to: "p#fourofour"
+  #match '*path', to: "p#fourofour"
 end
