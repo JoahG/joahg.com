@@ -1,4 +1,5 @@
 Joahg::Application.routes.draw do
+  get "g+" => "redirect#gplus", :as => "gplus"
   post 'sms' => "sms#index",                  :as => "sms_recieve", constraints: {subdomain: /\bgo\b.*/}
   get 'new' => "urls#new",                    :as => "new_url",     constraints: {subdomain: /\bgo\b.*/}
   get 'login' => "urls#login",                                      constraints: {subdomain: /\bgo\b.*/}
@@ -23,7 +24,6 @@ Joahg::Application.routes.draw do
   post "/posts" => "posts#create", constraints: {subdomain: /\bblog\b.*/}
   match '', to: "posts#index", constraints: {subdomain: /\bblog\b.*/}
 
-  get "g+" => "redirect#gplus", :as => "gplus"
   get "about" => "p#about", :as => "about"
   get "find" => "p#find", :as => "find"
   root :to => 'p#index'
