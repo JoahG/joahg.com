@@ -1,5 +1,5 @@
 Joahg::Application.routes.draw do
-  get "+" => redirect("https://plus.google.com/103488776856023593576/"), :format => false
+  get "+" => redirect("https://plus.google.com/+JoahGerstenberg"), :format => false
 
   post 'sms' => "sms#index",                  :as => "sms_recieve", constraints: {subdomain: /\bgo\b.*/}
   get 'new' => "urls#new",                    :as => "new_url",     constraints: {subdomain: /\bgo\b.*/}
