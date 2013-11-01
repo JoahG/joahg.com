@@ -25,6 +25,7 @@ Joahg::Application.routes.draw do
   post "/posts" => "posts#create", constraints: {subdomain: /\bblog\b.*/}
   match '', to: "posts#index", constraints: {subdomain: /\bblog\b.*/}
 
+  get "portfolio" => "p#portfolio", :as => "portfolio"
   get "about" => "p#about", :as => "about"
   get "find" => "p#find", :as => "find"
   root :to => 'p#index'

@@ -24,20 +24,6 @@
 					<%end%>
 						<%= link_to "home", root_url(subdomain: false), :class => "nav_home" %>
 					</li>
-					<% if current_page?(root_url(subdomain: "blog")) %>
-						<li class="active">
-					<% else %>
-						<li>
-					<% end %>
-						<%= link_to "blog", root_url(subdomain: "blog") %>
-					</li>
-					<% if current_page?(root_url(subdomain: "go")) %>
-						<li class="active">
-					<% else %>
-						<li>
-					<% end %>
-						<%= link_to "urls", root_url(subdomain: "go") %>
-					</li>
 					<% if current_page?(about_path) %>
 						<li class="active">
 					<%else%>
@@ -52,8 +38,12 @@
 					<%end%>
 						<%= link_to "find", root_url(subdomain: false)+"find", :class => "nav_find" %>
 					</li>
-					<li>
-						<a href="http://forum.joahg.com">forum</a>
+					<% if current_page?(portfolio_path) %>
+						<li class="active">
+					<%else%>
+						<li>
+					<%end%>
+						<%= link_to "portfolio", root_url(subdomain: false)+"portfolio", :class => "nav_portfolio" %>
 					</li>
 					<li>
 						<a href="mailto:me@joahg.com" class="email">email</a>

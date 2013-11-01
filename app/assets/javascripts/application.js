@@ -23,12 +23,12 @@ var navclearfix = "<span class='nav-clearfix'>&nbsp;</span>"
 
 
 var gridize = function() {
-	a = $("#find ul li a")
+	a = $("#gridize ul li a")
 	b = []
 	while (a.length > 0) {
 		b.push(a.splice(0,3))
 	}
-	$("#find ul").remove()
+	$("#gridize ul").remove()
 	html = ""
 	for (i in b) {
 		o = b[i]
@@ -36,18 +36,18 @@ var gridize = function() {
 		for (j in o) {
 			d = o[j]
 			if (d != o[o.length-1] && d != o[0]) {
-				h += "<div class='four columns logo'><a href='"+d.href+"' target='_blank'><div class='img' style='background-image:url("+d.getAttribute("data-img")+")' /><h6>"+d.text+"</h6></a></div>"
+				h += "<div class='four columns logo'><a href='"+d.href+"' target='_blank'><div class='img' style='background-image:url("+d.getAttribute("data-img")+")' /><h6>"+d.text+"</h6></a><p class='info'>"+d.getAttribute("data-about")+"</div>"
 			} else if (d === o[o.length-1]) {
-				h += "<div class='four columns omega logo'><a href='"+d.href+"' target='_blank'><div class='img' style='background-image:url("+d.getAttribute("data-img")+")' /><h6>"+d.text+"</h6></a></div>"
+				h += "<div class='four columns omega logo'><a href='"+d.href+"' target='_blank'><div class='img' style='background-image:url("+d.getAttribute("data-img")+")' /><h6>"+d.text+"</h6></a><p class='info'>"+d.getAttribute("data-about")+"</div>"
 			} else if (d === o[0]) {
-				h += "<div class='four columns alpha logo'><a href='"+d.href+"' target='_blank'><div class='img' style='background-image:url("+d.getAttribute("data-img")+")' /><h6>"+d.text+"</h6></a></div>"
+				h += "<div class='four columns alpha logo'><a href='"+d.href+"' target='_blank'><div class='img' style='background-image:url("+d.getAttribute("data-img")+")' /><h6>"+d.text+"</h6></a><p class='info'>"+d.getAttribute("data-about")+"</div>"
 			}
 		}
 		h += "</div>"
 		html += h
 	}
 	if (html != "") {
-		$("#find").html(html)
+		$("#gridize").html(html)
 	}
 }
 

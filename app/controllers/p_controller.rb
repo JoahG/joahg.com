@@ -8,6 +8,9 @@ class PController < ApplicationController
 	def about
 	end
 
+	def portfolio
+	end
+
 	def fourofour
 	end
 end
