@@ -36,11 +36,11 @@ var gridize = function() {
 		for (j in o) {
 			d = o[j]
 			if (d != o[o.length-1] && d != o[0]) {
-				h += "<div class='four columns logo'><a href='"+d.href+"' target='_blank'><div class='img' style='background-image:url("+d.getAttribute("data-img")+")' /><h6>"+d.text+"</h6></a><p class='info'>"+d.getAttribute("data-about")+"</div>"
+				h += "<div class='four columns logo'><a href='"+d.href+"' target='_blank'><div class='img' style='background-image:url("+d.getAttribute("data-img")+")' /><h6>"+d.text+"</h6></a>"+(d.getAttribute("data-about")?"<p class='info'>"+d.getAttribute("data-about")+"</p>":"")+"</div>"
 			} else if (d === o[o.length-1]) {
-				h += "<div class='four columns omega logo'><a href='"+d.href+"' target='_blank'><div class='img' style='background-image:url("+d.getAttribute("data-img")+")' /><h6>"+d.text+"</h6></a><p class='info'>"+d.getAttribute("data-about")+"</div>"
+				h += "<div class='four columns omega logo'><a href='"+d.href+"' target='_blank'><div class='img' style='background-image:url("+d.getAttribute("data-img")+")' /><h6>"+d.text+"</h6></a><p class='info'>"+(d.getAttribute("data-about")?"<p class='info'>"+d.getAttribute("data-about")+"</p>":"")+"</div>"
 			} else if (d === o[0]) {
-				h += "<div class='four columns alpha logo'><a href='"+d.href+"' target='_blank'><div class='img' style='background-image:url("+d.getAttribute("data-img")+")' /><h6>"+d.text+"</h6></a><p class='info'>"+d.getAttribute("data-about")+"</div>"
+				h += "<div class='four columns alpha logo'><a href='"+d.href+"' target='_blank'><div class='img' style='background-image:url("+d.getAttribute("data-img")+")' /><h6>"+d.text+"</h6></a><p class='info'>"+(d.getAttribute("data-about")?"<p class='info'>"+d.getAttribute("data-about")+"</p>":"")+"</div>"
 			}
 		}
 		h += "</div>"
