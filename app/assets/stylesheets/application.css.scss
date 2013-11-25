@@ -13,6 +13,13 @@
  *= require_self
  */
 
+.preload {
+	display:none;
+	* {
+		display:none;
+	}
+}
+
 nav ul {
 	display: block;
 }
