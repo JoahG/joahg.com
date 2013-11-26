@@ -1,7 +1,0 @@
-<h1>Info on <%= @url.short %></h1>
-Created at: <%= @url.created_at %><br>
-Directs to: <%= @url.long %><br>
-Has received <%= pluralize(@url.clicks, "click") %>
-<% if current_user && current_user.admin? %>
-	<br><%= link_to 'Delete', @url, method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
