@@ -29,3 +29,5 @@ gem 'friendly_id'
 gem 'redcarpet'
 
 gem 'twilio-ruby'
+
+gem 'rails_12factor'
