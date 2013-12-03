@@ -1,82 +1,80 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>JoahG.com</title>
-	<%= stylesheet_link_tag    "application", :media => "all" %>
-	<%= javascript_include_tag "application" %>
-	<%= csrf_meta_tags %>
+	<head>
+		<title>JoahG.com</title>
+		<%= stylesheet_link_tag    "application", :media => "all" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
 
-	<link rel="stylesheet" type="text/css" media="screen" href="http://www.devslide.com/public/labs/browser-detection/browser-detection.css" />
-	<script type="text/javascript" src="http://www.devslide.com/public/labs/browser-detection/browser-detection.js"></script>
+		<link rel="stylesheet" type="text/css" media="screen" href="http://www.devslide.com/public/labs/browser-detection/browser-detection.css" />
+		<script type="text/javascript" src="http://www.devslide.com/public/labs/browser-detection/browser-detection.js"></script>
 
-	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-	<meta name="viewport" content="width=device-width">
-	<link rel="icon" type="image/ico" href="assets/favicon2.png" />
-</head>
-<body>
-	<div class="container">
-		<div class="three columns sidebar">
-			<nav>
-				<h3 id="logo"> Joah Gerstenberg </h3>
-				<button class="mobile-nav-trigger"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-				<ul>
-					<% if current_page?(root_url) %>
-						<li class="active">
-					<%else%>
+		<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+		<meta name="viewport" content="width=device-width">
+		<link rel="icon" type="image/ico" href="assets/favicon2.png" />
+	</head>
+	<body>
+		<div class="container">
+			<div class="three columns sidebar">
+				<nav>
+					<h3 id="logo"> Joah Gerstenberg </h3>
+					<button class="mobile-nav-trigger"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+					<ul>
+						<% if current_page?(root_url) %>
+							<li class="active">
+						<%else%>
+							<li>
+						<%end%>
+							<%= link_to "home", root_url, :class => "nav_home" %>
+						</li>
+						<% if current_page?(about_path) %>
+							<li class="active">
+						<%else%>
+							<li>
+						<%end%>
+							<%= link_to "about", about_path, :class => "nav_about" %>
+						</li>
+						<% if current_page?(find_path) %>
+							<li class="active">
+						<%else%>
+							<li>
+						<%end%>
+							<%= link_to "find", find_path, :class => "nav_find" %>
+						</li>
 						<li>
-					<%end%>
-						<%= link_to "home", root_url, :class => "nav_home" %>
-					</li>
-					<% if current_page?(about_path) %>
-						<li class="active">
-					<%else%>
+							<a href="http://blog.joahg.com">blog</a>
+						</li>
+						<% if current_page?(portfolio_path) %>
+							<li class="active">
+						<%else%>
+							<li>
+						<%end%>
+							<%= link_to "portfolio", portfolio_path, :class => "nav_portfolio" %>
+						</li>
 						<li>
-					<%end%>
-						<%= link_to "about", about_path, :class => "nav_about" %>
-					</li>
-					<% if current_page?(find_path) %>
-						<li class="active">
-					<%else%>
-						<li>
-					<%end%>
-						<%= link_to "find", find_path, :class => "nav_find" %>
-					</li>
-					<li>
-						<a href="http://blog.joahg.com">blog</a>
-					</li>
-					<% if current_page?(portfolio_path) %>
-						<li class="active">
-					<%else%>
-						<li>
-					<%end%>
-						<%= link_to "portfolio", portfolio_path, :class => "nav_portfolio" %>
-					</li>
-					<li>
-						<a href="mailto:me@joahg.com" class="email">email</a>
-					</li>
-				</ul>
-			</nav>
-			<span class="nav-clearfix">&nbsp;</span>
+							<a href="mailto:me@joahg.com" class="email">email</a>
+						</li>
+					</ul>
+				</nav>
+				<span class="nav-clearfix">&nbsp;</span>
+			</div>
+			<div class="twelve columns offset-by-one content">
+				<%= yield %>
+			</div>
 		</div>
-		<div class="twelve columns offset-by-one content">
-			<%= yield %>
-		</div>
-	</div>
 
-	<!-- Google Analytics -->
+		<!-- Google Analytics -->
 
-	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-	  ga('create', 'UA-45765973-1', 'joahg.com');
-	  ga('send', 'pageview');
-	</script>
+		  ga('create', 'UA-45765973-1', 'joahg.com');
+		  ga('send', 'pageview');
+		</script>
 
-	<!-- End Google Analytics -->
-
-
-</body>
+		<!-- End Google Analytics -->
+	</body>
 </html>
