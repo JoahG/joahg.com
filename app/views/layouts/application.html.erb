@@ -52,7 +52,7 @@
 							<%= link_to "portfolio", portfolio_path, :class => "nav_portfolio" %>
 						</li>
 						<li>
-							<a href="mailto:me@joahg.com" class="email">email</a>
+							<%= obfuscate_email 'me@joahg.com', 'email', 'Hey Joah!'%>
 						</li>
 					</ul>
 				</nav>

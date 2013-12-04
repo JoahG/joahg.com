@@ -31,3 +31,5 @@ gem 'redcarpet'
 gem 'twilio-ruby'
 
 gem 'rails_12factor'
+
+gem 'obfuscatejs'
