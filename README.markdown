@@ -1,5 +1,4 @@
-joahg.com
-=========
+#joahg.com [![Build Status](https://travis-ci.org/JoahG/joahg.com.png?branch=heroku)](https://travis-ci.org/JoahG/joahg.com)
 
 Files for [joahg.com](http://www.joahg.com), my personal website
 
